@@ -33,7 +33,11 @@ dependencies {  // 의존성 선언
     compile('org.springframework.boot:spring-boot-starter-web')     // main에서는 web
     compile('org.projectlombok:lombok') // 매번 의존성 추가하고, Enable annotation processing 체크
     compile('org.springframework.boot:spring-boot-starter-data-jpa')    // springboot 용 Spring Data Jpa 추상화 라이브러리, spring boot 버전에 맞춰 자동으로 JPA관련 라이브러리들의 버전을 관리
-    compile('com.h2database:h2')    // 인메모리 관계형 DB, 재시작하면 초기화되므로 테스트 용도로 많이 사용
     compile('org.springframework.boot:spring-boot-starter-mustache')
+    compile('com.h2database:h2')    // 인메모리 관계형 DB, 재시작하면 초기화되므로 테스트 용도로 많이 사용
+
+    compile('org.springframework.boot:spring-boot-starter-oauth2-client')
+    compile('org.springframework.session:spring-session-jdbc')  // db를 세션 저장소로
+
     testCompile('org.springframework.boot:spring-boot-starter-test')    // test에서는 web,test
 }
