@@ -40,4 +40,5 @@ dependencies {  // 의존성 선언
     compile('org.springframework.session:spring-session-jdbc')  // db를 세션 저장소로
 
     testCompile('org.springframework.boot:spring-boot-starter-test')    // test에서는 web,test
+    testCompile('org.springframework.security:spring-security-test')
 }
