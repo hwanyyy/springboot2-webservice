@@ -22,7 +22,7 @@ public class IndexControllerTest {
         String body = this.restTemplate.getForObject("/", String.class);
 
         //then
-        assertThat(body).contains("SpringBoot로 시작하는 WebService");
+        assertThat(body).contains("SpringBoot board");
     }
 
 }
