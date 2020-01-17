@@ -22,21 +22,22 @@ jobs:
       TERM: dumb
 
     steps:
+      # workflowㅇㅔ서 트리거된 git branch를 checkout
       - checkout
 
-      # Download and cache dependencies
+      # Download and cache dependencies, keys에 저장된 키로 캐시에 저장된 내용을 복사
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "build.gradle" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: gradle dependencies
-
+#      - run: gradle dependencies
       - save_cache:
           paths:
-            - ~/.gradle
+          - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
+      - run: ./gradlew clean build
       # run tests!
-      - run: gradle test
+#      - run: gradle test
