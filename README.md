@@ -1,2 +1,2 @@
 # Springboot-board
-SpringBoot 연습 (board/Junit/springSecurity/AWS/Travis CI/nginx)
+SpringBoot 연습 (board/Junit4/springSecurity/AWS/Circle CI/nginx)
