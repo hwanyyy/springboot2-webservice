@@ -58,6 +58,7 @@ jobs:
       - aws-s3/copy:
           from: deploy
           to: 's3://hwany-springboot-build/deploy'
+          aws-region: AWS_DEFAULT_REGION
 
 
 workflows:
