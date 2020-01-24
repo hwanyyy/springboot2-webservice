@@ -51,7 +51,6 @@ jobs:
       - image: circleci/python:2.7
     steps:
       - checkout
-      - run: pwd
       - aws-s3/sync:
           from: .
           to: 's3://hwany-springboot-build'
