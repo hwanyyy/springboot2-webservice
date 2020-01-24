@@ -53,7 +53,7 @@ jobs:
             mv springboot2-webservice.zip deploy/springboot2-webservice.zip
 
       - aws-s3/sync:
-          from: ./deploy
+          from: deploy/*
           to: 's3://hwany-springboot-build'
           aws-region: AWS_DEFAULT_REGION
       - aws-s3/copy:
