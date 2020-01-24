@@ -39,6 +39,12 @@ jobs:
 
       - run: ./gradlew clean build
 
+  deploy:
+    docker:
+      - image: circleci/python:2.7
+    steps:
+      - checkout
+
       - run:
           name: before_deploy
           command: |
@@ -46,13 +52,8 @@ jobs:
             mkdir -p deploy
             mv springboot2-webservice.zip deploy/springboot2-webservice.zip
 
-  deploy:
-    docker:
-      - image: circleci/python:2.7
-    steps:
-      - checkout
       - aws-s3/sync:
-          from: deploy
+          from: ./deploy
           to: 's3://hwany-springboot-build'
           aws-region: AWS_DEFAULT_REGION
       - aws-s3/copy:
