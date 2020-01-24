@@ -51,8 +51,9 @@ jobs:
       - image: circleci/python:2.7
     steps:
       - checkout
+      - run: pwd
       - aws-s3/sync:
-          from: deploy
+          from: .
           to: 's3://hwany-springboot-build'
           aws-region: AWS_DEFAULT_REGION
       - aws-s3/copy:
