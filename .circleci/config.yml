@@ -57,7 +57,6 @@ jobs:
       - aws-code-deploy/deploy-bundle:
           application-name: hwany-springboot2-webservice
           deployment-group: hwany-springboot2-webservice-group
-          service-role-arn: arn:aws:iam::257579735901:role/codedeploy-role
           bundle-bucket:  hwany-springboot-build
           bundle-key: hwany-springboot-build.zip
           bundle-type: zip # default
