@@ -73,8 +73,6 @@ workflows:
             branches:
               only: master
 
-  deploy_application:
-    jobs:
       - aws-code-deploy/deploy:
           application-name: hwany-springboot2-webservice
           deployment-group: hwany-springboot2-webservice-group
