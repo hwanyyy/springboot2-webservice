@@ -6,6 +6,7 @@ version: 2.1
 
 orbs:
   aws-s3: circleci/aws-s3@1.0.13
+  aws-code-deploy: circleci/aws-code-deploy@1.0.0
 
 jobs:
   build:
@@ -57,9 +58,18 @@ jobs:
           to: 's3://hwany-springboot-build'
           aws-region: AWS_DEFAULT_REGION
 
+      - aws-code-deploy/deploy:
+          application-name: hwany-springboot2-webservice
+          deployment-group: hwany-springboot2-webservice-group
+          service-role-arn: arn:aws:iam::257579735901:role/codedeploy-role
+          bundle-bucket:  hwany-springboot-build
+          bundle-key: hwany-springboot-build.zip
+          bundle-type: zip # default
+
 
 workflows:
   version: 2.1
+
   build-deploy:
     jobs:
       - build
