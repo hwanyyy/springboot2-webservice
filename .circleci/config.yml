@@ -59,7 +59,7 @@ jobs:
           deployment-group: hwany-springboot2-webservice-group
           deployment-config: CodeDeployDefault.AllAtOnce
           bundle-bucket:  hwany-springboot-build
-          bundle-key: springboot2-webservice.zip
+          bundle-key: springboot2-webservice # 확장자 제거해야 함
           bundle-type: zip # default
 
 
