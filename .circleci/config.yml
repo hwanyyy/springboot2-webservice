@@ -58,7 +58,7 @@ jobs:
           application-name: hwany-springboot2-webservice
           deployment-group: hwany-springboot2-webservice-group
           bundle-bucket:  hwany-springboot-build
-          bundle-key: hwany-springboot-build.zip
+          bundle-key: hwany-springboot-build
           bundle-type: zip # default
 
 
