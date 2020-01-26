@@ -56,7 +56,7 @@ jobs:
 
     steps:
       - attach_workspace:
-          - at: .
+          at: .
 
       - aws-s3/copy:
           from: deploy/*
