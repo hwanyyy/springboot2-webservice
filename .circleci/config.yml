@@ -43,7 +43,7 @@ jobs:
       - run:
           name: before_deploy
           command: |
-            tar cvzf springboot2-webservice.tar.gz scripts/*.sh appspec.yml build/libs/*.jar
+            tar cvzf springboot2-webservice.tgz scripts/*.sh appspec.yml build/libs/*.jar
 
       - persist_to_workspace:
           root: .
@@ -57,7 +57,7 @@ jobs:
           at: .
 
       - aws-s3/copy:
-          from: springboot2-webservice.tar.gz
+          from: springboot2-webservice.tgz
           to: 's3://hwany-springboot-build'
           aws-region: AWS_DEFAULT_REGION
 
@@ -67,7 +67,7 @@ jobs:
           deployment-config: CodeDeployDefault.AllAtOnce
           bundle-bucket:  hwany-springboot-build
           bundle-key: springboot2-webservice # 확장자 제거해야 함
-          bundle-type: tar.gz
+          bundle-type: tgz
 
 
 
