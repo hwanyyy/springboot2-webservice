@@ -47,7 +47,7 @@ jobs:
             mkdir -p deploy
             mv springboot2-webservice.zip deploy/springboot2-webservice.zip
 
-      - persist_to_worksapce:
+      - persist_to_workspace:
           root: .
           paths: deploy
 
