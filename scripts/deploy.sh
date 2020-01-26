@@ -4,7 +4,7 @@ REPOSITORY=/home/ec2-user/app/step2
 PROJECT_NAME=springboot2-webservice
 
 echo "> Build 파일 복사"
-cp $REPOSITORY/zip/*.jar $REPOSITORY/
+cp $REPOSITORY/zip/builds/libs/*.jar $REPOSITORY/
 
 echo "> 현재 구동 중인 애플리케이션 pid 확인"
 
