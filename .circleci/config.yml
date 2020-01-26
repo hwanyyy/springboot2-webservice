@@ -57,7 +57,7 @@ jobs:
           at: .
 
       - aws-s3/copy:
-          from: deploy/*
+          from: springboot2-webservice.tar.gz
           to: 's3://hwany-springboot-build'
           aws-region: AWS_DEFAULT_REGION
 
