@@ -22,7 +22,7 @@ public class IndexControllerTest {
         String body = this.restTemplate.getForObject("/", String.class);
 
         //then
-        assertThat(body).contains("SpringBoot board");
+        assertThat(body).contains("SpringBoot2 Webservice");
     }
 
 }
