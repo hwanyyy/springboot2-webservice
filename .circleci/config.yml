@@ -43,13 +43,11 @@ jobs:
       - run:
           name: before_deploy
           command: |
-            zip -r springboot2-webservice *
-            mkdir -p deploy
-            mv springboot2-webservice.zip deploy/springboot2-webservice.zip
+            tar cvzf springboot2-webservice.tar.gz scripts/*.sh appspec.yml build/libs/*.jar
 
       - persist_to_workspace:
           root: .
-          paths: deploy
+          paths: .
 
   deploy:
     executor: my-executor
@@ -69,7 +67,7 @@ jobs:
           deployment-config: CodeDeployDefault.AllAtOnce
           bundle-bucket:  hwany-springboot-build
           bundle-key: springboot2-webservice # 확장자 제거해야 함
-          bundle-type: zip # default
+          bundle-type: tar.gz
 
 
 
