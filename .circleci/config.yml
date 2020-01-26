@@ -43,25 +43,27 @@ jobs:
             mkdir -p deploy
             mv springboot2-webservice.zip deploy/springboot2-webservice.zip
 
+      - store_artifacts:
+          path: deploy
 
-  deploy:
-    docker:
-      - image: circleci/python:2.7
-    steps:
-      - checkout
+    deploy:
+      docker:
+        - image: circleci/python:2.7
+      steps:
+        - checkout
 
-      - aws-s3/copy:
-          from: deploy/*
-          to: 's3://hwany-springboot-build'
-          aws-region: AWS_DEFAULT_REGION
+        - aws-s3/copy:
+            from: deploy/*
+            to: 's3://hwany-springboot-build'
+            aws-region: AWS_DEFAULT_REGION
 
-      - aws-code-deploy/deploy-bundle:
-          application-name: hwany-springboot2-webservice
-          deployment-group: hwany-springboot2-webservice-group
-          deployment-config: CodeDeployDefault.AllAtOnce
-          bundle-bucket:  hwany-springboot-build
-          bundle-key: springboot2-webservice # 확장자 제거해야 함
-          bundle-type: zip # default
+        - aws-code-deploy/deploy-bundle:
+            application-name: hwany-springboot2-webservice
+            deployment-group: hwany-springboot2-webservice-group
+            deployment-config: CodeDeployDefault.AllAtOnce
+            bundle-bucket:  hwany-springboot-build
+            bundle-key: springboot2-webservice # 확장자 제거해야 함
+            bundle-type: zip # default
 
 
 
