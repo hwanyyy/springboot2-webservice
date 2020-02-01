@@ -7,12 +7,12 @@ function find_idle_profile(){
 
   if [ ${RESPONSE_CODE} -ge 400 ] # 400 보다 크면(즉, 40x/50x에러 모두 포함)
   then
-    CURRENT_PROFILE=real2
+    CURRENT_PROFILE=real2   # 이슈가 있을 경우 real1에 배포하기 위해서 강제로 현재 포트를 real2로 두는 정책을 사용
   else
     CURRENT_PROFILE=$(curl -s http://localhost/profile)
   fi
 
-  if [ ${CURRENT_PROFILE}==real1 ]
+  if [ ${CURRENT_PROFILE} == real1 ]
   then
     IDLE_PROFILE=real2
   else
@@ -22,11 +22,11 @@ function find_idle_profile(){
   echo "${IDLE_PROFILE}"  # bash는 값을 반환하는 기능이 없으므로 제일 마지막에 echo로 결과를 출력하고, 클라이언트에서 그 값을 잡아서 $(find_dile_profile)을 사용, 중간에 echo를 사용해선 안됨
 }
 
-# idlde 상태인 profile의 port 찾기
+# idle 상태인 profile의 port 찾기
 function find_idle_port(){
   IDLE_PROFILE=$(find_idle_profile)
 
-  if [ ${IDLE_PROFILE}==real1 ]
+  if [ ${IDLE_PROFILE} == real1 ]
   then
     echo "8081"
   else

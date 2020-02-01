@@ -2,7 +2,6 @@
 
 
 ABSPATH=$(readlink -f $0)   # 현재 stop.sh가 속해있는 디렉토리를 나타냅니다.
-
 ABSDIR=$(dirname ${ABSPATH})
 
 source ${ABSDIR}/profile.sh     # stop.sh에서도 profile.sh의 function들을 사용하기 위해 import
