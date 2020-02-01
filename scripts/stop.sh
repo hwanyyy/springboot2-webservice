@@ -10,7 +10,7 @@ source ${ABSDIR}/profile.sh     # stop.sh에서도 profile.sh의 function들을 
 IDLE_PORT=$(find_idle_port)
 
 echo "> $IDLE_PORT 에서 구동중인 애플리케이션 pid 확인"
-IDLE_PORT=$(lsof -ti tcp:${IDLE_PORT})
+IDLE_PID=$(lsof -ti tcp:${IDLE_PORT})
 
 if [ -z ${IDLE_PID} ]
 then
