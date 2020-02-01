@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 
-ABSPATH = $(readlink -f $0)
-ABSDIR = $(dirname $ABSPATH)
+ABSPATH=$(readlink -f $0)
+ABSDIR=$(dirname $ABSPATH)
 source ${ABSDIR}/profile.sh
 source ${ABSDIR}/switch.sh
 
-IDLE_PORT = $(find_idle_port)
+IDLE_PORT=$(find_idle_port)
 
 echo "> Health Check Start!"
 echo "> IDLE_PORT: $IDLE_PORT"
@@ -15,8 +15,8 @@ sleep 10
 
 for RETRY_COUNT in {1..10}
 do
-    RESPONSE = $(curl -s http://localhost:${IDLE_PORT}/profile)
-    UP_COUNT = $(echo ${RESPONSE} | grep 'real' | wc -l)
+    RESPONSE=$(curl -s http://localhost:${IDLE_PORT}/profile)
+    UP_COUNT=$(echo ${RESPONSE} | grep 'real' | wc -l)
 
     # nginx와 연결되지 않은 포트로 스프링부트가 잘 수행되었는지 체크합니다. 잘 떳는지 확인이 되어야 nginx proxy 설정을 변경(switch_proxy)합니다.
     if [ ${UP_COUNT} -ge 1 ]
