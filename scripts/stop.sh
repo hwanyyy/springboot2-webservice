@@ -7,7 +7,7 @@ ABSDIR=$(dirname ${ABSPATH})
 
 source ${ABSDIR}/profile.sh     # stop.sh에서도 profile.sh의 function들을 사용하기 위해 import
 
-IDLE_PORT=$(fins_idle_port)
+IDLE_PORT=$(find_idle_port)
 
 echo "> $IDLE_PORT 에서 구동중인 애플리케이션 pid 확인"
 IDLE_PORT=$(lsof -ti tcp:${IDLE_PORT})
